@@ -623,6 +623,11 @@ Prefab:
       propertyPath: walkSpeed
       value: 1.47
       objectReference: {fileID: 0}
+    - target: {fileID: 114442103568673292, guid: 2d6ac7993b29a43ccb7f917a2057ac7f,
+        type: 2}
+      propertyPath: currentSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d6ac7993b29a43ccb7f917a2057ac7f, type: 2}
   m_IsPrefabParent: 0
