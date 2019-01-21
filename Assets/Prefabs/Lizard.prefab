@@ -142,6 +142,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSpeed: 0
   health: 200
+  explosionEffectPrefab: {fileID: 1166281136425828, guid: 340e2bd00f57347e288f54ed439789b5,
+    type: 2}
+  durationOfExplosion: 2
 --- !u!212 &212918708260487972
 SpriteRenderer:
   m_ObjectHideFlags: 1
