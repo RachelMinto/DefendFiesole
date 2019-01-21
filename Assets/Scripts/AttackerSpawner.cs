@@ -25,7 +25,7 @@ public class AttackerSpawner : MonoBehaviour {
     }
 
     void SpawnEnemy() {
-        var newEnemy = Instantiate(
+        Instantiate(
             attackerPrefab,
             transform.position,
             Quaternion.identity
