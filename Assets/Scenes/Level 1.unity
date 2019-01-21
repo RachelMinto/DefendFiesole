@@ -152,9 +152,48 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114164311398572646, guid: 0fa0cfd975682401ab06681185da5a6d,
+        type: 2}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1014559444088372, guid: 175ad1cde018c4815a19c8ac736860f9,
+        type: 2}
+    - target: {fileID: 114164311398572646, guid: 0fa0cfd975682401ab06681185da5a6d,
+        type: 2}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 113927170}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fa0cfd975682401ab06681185da5a6d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &113927170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 113927171}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &113927171
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 113927170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.38, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1133900595}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344083749
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +421,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1133900595 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4791961973982984, guid: 0fa0cfd975682401ab06681185da5a6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 64286647}
 --- !u!1001 &1365000598
 Prefab:
   m_ObjectHideFlags: 0
