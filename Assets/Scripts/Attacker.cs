@@ -2,19 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attacker : MonoBehaviour {
-    [Range(0f, 5f)][SerializeField] float currentSpeed = 0f;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
-	}
+public class Attacker : MonoBehaviour
+{
+    [Range(0f, 5f)] [SerializeField] float currentSpeed = 0f;
+    [SerializeField] int health = 200;
+    
 
-    public void SetMovementSpeed(float speed) {
+    void Update()
+    {
+        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
+    }
+
+    public void SetMovementSpeed(float speed)
+    {
         currentSpeed = speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die() {
+        Destroy(gameObject);
     }
 }

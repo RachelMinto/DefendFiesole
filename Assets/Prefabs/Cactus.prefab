@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
+  gun: {fileID: 0}
 --- !u!212 &212808557925089146
 SpriteRenderer:
   m_ObjectHideFlags: 1
