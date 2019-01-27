@@ -25,11 +25,13 @@ public class AttackerSpawner : MonoBehaviour {
     }
 
     void SpawnEnemy() {
-        Instantiate(
+        Attacker attacker = Instantiate(
             attackerPrefab,
             transform.position,
             Quaternion.identity
-        );
+        ) as Attacker;
+
+        attacker.transform.parent = transform;
     }
 
 }
