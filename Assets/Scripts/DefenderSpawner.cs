@@ -19,10 +19,23 @@ public class DefenderSpawner : MonoBehaviour {
         var StarDisplay = FindObjectOfType<StarsDisplay>();
         int defenderCost = defender.GetStarCost();
 
-        if (StarDisplay.HaveEnoughStars(defenderCost)) {
+        if (StarDisplay.HaveEnoughStars(defenderCost) && !DefenderInSquare(gridPos)) {
             SpawnDefender(gridPos);
             StarDisplay.SpendStars(defenderCost);
         }
+    }
+
+    private bool DefenderInSquare(Vector2 gridPos) {
+        bool squareIsOccupied = false;
+        Defender[] placedDefenders = FindObjectsOfType<Defender>();
+        foreach(Defender placedDefender in placedDefenders) {
+            Vector2 defenderVector2Pos = new Vector2(placedDefender.transform.position.x, placedDefender.transform.position.y);
+            Vector2 snappedGridPos = new Vector2(Mathf.RoundToInt(gridPos.x), Mathf.RoundToInt(gridPos.y));
+            if (defenderVector2Pos == snappedGridPos) {
+                squareIsOccupied = true;
+            }
+        }
+        return squareIsOccupied;
     }
 
     private Vector2 GetSquareClicked() {
@@ -39,10 +52,10 @@ public class DefenderSpawner : MonoBehaviour {
 
     private void SpawnDefender(Vector2 worldPos) {
         Vector2 snappedWorldPos = SnapToGrid(worldPos);
-        Defender newDefender = Instantiate(
+        Instantiate(
             defender,
             snappedWorldPos,
             Quaternion.identity
-        ) as Defender;
+        );
     }
 }
