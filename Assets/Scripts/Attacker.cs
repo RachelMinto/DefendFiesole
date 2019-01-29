@@ -5,10 +5,15 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [Range(0f, 5f)] [SerializeField] float currentSpeed = 0f;
-    [SerializeField] int health = 200;
     [SerializeField] GameObject explosionEffectPrefab;
     [SerializeField] float durationOfExplosion = 1f;
     GameObject currentTarget;
+    int health;
+
+    private void Start()
+    {
+        health = GetComponent<Health>().GetHealth();
+    }
 
     void Update()
     {
@@ -21,7 +26,6 @@ public class Attacker : MonoBehaviour
     }
 
     public void Attack(GameObject target) {
-        Debug.Log("is in Attack");
         GetComponent<Animator>().SetBool("isAttacking", true);
         currentTarget = target;
     }
@@ -60,5 +64,14 @@ public class Attacker : MonoBehaviour
         ) as GameObject;
 
         Object.Destroy(explosion, durationOfExplosion);
+    }
+
+    private void StrikeTarget(int damage) {
+        if (!currentTarget) { return; }
+        Health opponentHealth = currentTarget.GetComponent<Health>();
+
+        if(opponentHealth) {
+            opponentHealth.DealDamage(damage);
+        }
     }
 }
