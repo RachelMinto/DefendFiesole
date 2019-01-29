@@ -8,7 +8,7 @@ public class Attacker : MonoBehaviour
     [SerializeField] int health = 200;
     [SerializeField] GameObject explosionEffectPrefab;
     [SerializeField] float durationOfExplosion = 1f;
-    
+    GameObject currentTarget;
 
     void Update()
     {
@@ -18,6 +18,12 @@ public class Attacker : MonoBehaviour
     public void SetMovementSpeed(float speed)
     {
         currentSpeed = speed;
+    }
+
+    public void Attack(GameObject target) {
+        Debug.Log("is in Attack");
+        GetComponent<Animator>().SetBool("isAttacking", true);
+        currentTarget = target;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
