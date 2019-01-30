@@ -7,13 +7,9 @@ public class AttackerSpawner : MonoBehaviour {
     [SerializeField] float minSpawnTime = 1f;
     [SerializeField] float maxSpawnTime = 5f;
     [SerializeField] Attacker attackerPrefab;
-	// Use this for initialization
+
 	void Start () {
         StartCoroutine(SpawnEnemies());
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 
     IEnumerator SpawnEnemies() {
