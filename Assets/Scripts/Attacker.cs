@@ -5,14 +5,12 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [Range(0f, 5f)] [SerializeField] float currentSpeed = 0f;
-    [SerializeField] GameObject explosionEffectPrefab;
-    [SerializeField] float durationOfExplosion = 1f;
     GameObject currentTarget;
-    int health;
+    Health health;
 
     private void Start()
     {
-        health = GetComponent<Health>().GetHealth();
+        health = GetComponent<Health>();
     }
 
     void Update()
@@ -35,35 +33,10 @@ public class Attacker : MonoBehaviour
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (damageDealer)
         {
-            ProcessHit(damageDealer);
+            int damage = damageDealer.GetDamage();
+            health.TakeDamage(damage);
+            damageDealer.Hit();
         }
-    }
-
-    private void ProcessHit(DamageDealer damageDealer)
-    {
-        health -= damageDealer.GetDamage();
-        damageDealer.Hit();
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    private void Die() {
-        Destroy(gameObject);
-        ExplodingVisualEffect();
-    }
-
-    private void ExplodingVisualEffect()
-    {
-        if (!explosionEffectPrefab) { return; }
-        GameObject explosion = Instantiate(
-            explosionEffectPrefab,
-            transform.position,
-            Quaternion.identity
-        ) as GameObject;
-
-        Object.Destroy(explosion, durationOfExplosion);
     }
 
     private void StrikeTarget(int damage) {
@@ -71,7 +44,7 @@ public class Attacker : MonoBehaviour
         Health opponentHealth = currentTarget.GetComponent<Health>();
 
         if(opponentHealth) {
-            opponentHealth.DealDamage(damage);
+            opponentHealth.TakeDamage(damage);
         }
     }
 }
