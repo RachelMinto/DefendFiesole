@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,16 +19,27 @@ public class AttackerSpawner : MonoBehaviour
     {
         while (spawn)
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(minSpawnTime, maxSpawnTime));
             SpawnEnemy();
         }
 
     }
 
+    public void StopSpawning() {
+        spawn = false;
+    }
+
     private void SpawnEnemy() {
-        int attackerIndex = Random.Range(0, attackerPrefabs.Length - 1);
+        int attackerIndex = UnityEngine.Random.Range(0, attackerPrefabs.Length - 1);
         Attacker attackerPrefab = attackerPrefabs[attackerIndex];
         Spawn(attackerPrefab);
+        IncrementNumberOfAttackers();
+    }
+
+    private void IncrementNumberOfAttackers()
+    {
+        LevelController levelController = FindObjectOfType<LevelController>();
+        levelController.IncrementAttackers();
     }
 
     private void Spawn(Attacker attackerPrefab) {

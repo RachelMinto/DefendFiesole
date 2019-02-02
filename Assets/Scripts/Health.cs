@@ -23,6 +23,16 @@ public class Health : MonoBehaviour {
     {
         Destroy(gameObject);
         ExplodingVisualEffect();
+
+        if(gameObject.GetComponent<Attacker>()) {
+            DecrementNumberOfAttackers();
+        }
+    }
+
+    private void DecrementNumberOfAttackers()
+    {
+        LevelController levelController = FindObjectOfType<LevelController>();
+        levelController.DeccrementAttackers();
     }
 
     private void ExplodingVisualEffect()
