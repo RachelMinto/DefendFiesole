@@ -35,8 +35,17 @@ public class Attacker : MonoBehaviour
         currentTarget = target;
     }
 
+
+    public void Jump()
+    {
+
+        GetComponent<Animator>().SetTrigger("jumpTrigger");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        EndZone endZone = other.gameObject.GetComponent<EndZone>();
+        if (endZone) { return; }
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (damageDealer)
         {

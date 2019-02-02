@@ -10,26 +10,34 @@ public class LevelLoader : MonoBehaviour {
     [SerializeField] int timeToWait = 3;
     int currentSceneIndex;
 
-    // Use this for initialization
     void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (currentSceneIndex == 0) {
-            StartCoroutine(WaitForTimeAndLoadNextScene());
+            DelayAndLoadNextScene();
         }
 	}
 
-    IEnumerator WaitForTimeAndLoadNextScene() {
-        yield return new WaitForSeconds(timeToWait);
-        LoadNextScene();
+    void LoadScene(int sceneIndex) {
+        SceneManager.LoadScene(sceneIndex);
     }
 
-    void LoadNextScene() {
-        SceneManager.LoadScene(currentSceneIndex + 1);
+    public void ImmediatelyLoadNextScene() {
+        LoadScene(currentSceneIndex + 1);
+    }
+
+    public void DelayAndLoadNextScene() {
+        StartCoroutine(WaitForTimeAndLoadScene(currentSceneIndex + 1));
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    IEnumerator WaitForTimeAndLoadScene(int sceneIndex)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        LoadScene(sceneIndex);
     }
 }
