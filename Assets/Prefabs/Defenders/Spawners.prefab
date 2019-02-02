@@ -248,11 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee305119ea2f944cc9777cf203fc81a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnTime: 6
-  maxSpawnTime: 8
+  minSpawnTime: 2
+  maxSpawnTime: 4
   attackerPrefabs:
   - {fileID: 114049328010847502, guid: 0dd1bfe67d1e04fb2ba38312c9e3e5a9, type: 2}
-  - {fileID: 114049328010847502, guid: 0dd1bfe67d1e04fb2ba38312c9e3e5a9, type: 2}
+  - {fileID: 114442103568673292, guid: 2d6ac7993b29a43ccb7f917a2057ac7f, type: 2}
   - {fileID: 114442103568673292, guid: 2d6ac7993b29a43ccb7f917a2057ac7f, type: 2}
   - {fileID: 114442103568673292, guid: 2d6ac7993b29a43ccb7f917a2057ac7f, type: 2}
   - {fileID: 114442103568673292, guid: 2d6ac7993b29a43ccb7f917a2057ac7f, type: 2}
