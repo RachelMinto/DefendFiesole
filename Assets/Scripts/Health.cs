@@ -19,7 +19,7 @@ public class Health : MonoBehaviour {
         }
 	}
 
-    private void Die()
+    public void Die()
     {
         Destroy(gameObject);
         ExplodingVisualEffect();

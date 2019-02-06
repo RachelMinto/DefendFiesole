@@ -35,6 +35,9 @@ public class Attacker : MonoBehaviour
         currentTarget = target;
     }
 
+    public void Remove() {
+        
+    }
 
     public void Jump()
     {

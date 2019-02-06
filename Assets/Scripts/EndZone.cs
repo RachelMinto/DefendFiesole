@@ -19,7 +19,7 @@ public class EndZone : MonoBehaviour {
     IEnumerator DelayAndDestroyAttacker(GameObject attacker)
     {
         yield return new WaitForSeconds(2);
-        Destroy(attacker);
+        attacker.GetComponent<Health>().Die();
     }
 
 }

@@ -8,11 +8,13 @@ public class LevelController : MonoBehaviour {
     [SerializeField] AudioSource winSFX;
     [SerializeField] int secondsDelayNextLevel = 3;
     [SerializeField] GameObject winLabel;
+    [SerializeField] GameObject loseLabel;
 
     private void Start()
     {
         numberOfAttackers = FindObjectsOfType<Attacker>().Length;
         winLabel.SetActive(false);
+        loseLabel.SetActive(false);
     }
 
     public void IncrementAttackers() {
@@ -44,12 +46,15 @@ public class LevelController : MonoBehaviour {
         }
     }
 
+    public void HandleLoseCondition() {
+        loseLabel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
     IEnumerator WinLevel() {
         winLabel.SetActive(true);
-        AudioSource audioSource = winSFX;
-        audioSource.Play();
+        winSFX.Play();
         yield return new WaitForSeconds(secondsDelayNextLevel);
-        LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
-        levelLoader.ImmediatelyLoadNextScene();
+        FindObjectOfType<LevelLoader>().LoadStartScene();
     }
 }

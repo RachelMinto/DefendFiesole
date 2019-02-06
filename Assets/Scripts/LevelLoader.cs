@@ -18,12 +18,34 @@ public class LevelLoader : MonoBehaviour {
         }
 	}
 
-    void LoadScene(int sceneIndex) {
+    void LoadScene(int sceneIndex) 
+    {
         SceneManager.LoadScene(sceneIndex);
     }
 
-    public void ImmediatelyLoadNextScene() {
+    public void LoadOptionsScene()
+    {
+        SceneManager.LoadScene("Options Screen");
+    }
+
+
+    public void ImmediatelyLoadNextScene() 
+    {
         LoadScene(currentSceneIndex + 1);
+    }
+
+
+    public void RestartScene()
+    {
+        Time.timeScale = 1;        
+        LoadScene(currentSceneIndex);
+    }
+
+
+    public void LoadStartScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Start Screen");
     }
 
     public void DelayAndLoadNextScene() {

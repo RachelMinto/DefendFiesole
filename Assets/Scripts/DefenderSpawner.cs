@@ -16,6 +16,7 @@ public class DefenderSpawner : MonoBehaviour {
     }
 
     private void AttemptToPlaceDefender(Vector2 gridPos) {
+        if (!defender) { return; }
         var StarDisplay = FindObjectOfType<StarsDisplay>();
         int defenderCost = defender.GetStarCost();
 

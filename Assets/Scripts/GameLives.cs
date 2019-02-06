@@ -30,8 +30,7 @@ public class GameLives : MonoBehaviour {
         UpdateDisplay();
 
         if(IsGameOver()) {
-            LevelLoader levelLoader = FindObjectOfType<LevelLoader>();
-            levelLoader.DelayAndLoadNextScene();
+            FindObjectOfType<LevelController>().HandleLoseCondition();
         }
     }
 }

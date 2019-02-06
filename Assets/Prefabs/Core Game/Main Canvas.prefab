@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79b70fc9ac5a4bca82ec7f7553a5d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 10
+  levelTime: 70
 --- !u!114 &114489935083968568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0650757e04abb43a5984814226df25be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stars: 1600
+  stars: 800
 --- !u!114 &114948381226291776
 MonoBehaviour:
   m_ObjectHideFlags: 1
