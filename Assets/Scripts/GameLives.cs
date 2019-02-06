@@ -4,14 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameLives : MonoBehaviour {
-
-    [SerializeField] int numberOfLives = 5;
     Text livesDisplayText;
+    int numberOfLives;
 
     void Start()
     {
         livesDisplayText = GetComponent<Text>();
+        numberOfLives = NumberOfStartingLives();
         UpdateDisplay();
+    }
+
+    private int NumberOfStartingLives() {
+        PlayerPrefsController playerPrefsController = FindObjectOfType<PlayerPrefsController>();
+        float difficulty = PlayerPrefsController.GetMasterDifficulty();
+        float someFloat = (1f - difficulty) * 10;
+        return (int)System.Math.Round(someFloat);
     }
 
     private void UpdateDisplay()

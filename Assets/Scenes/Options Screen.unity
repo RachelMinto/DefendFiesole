@@ -189,7 +189,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1684403796}
-        m_MethodName: SetToDefaultValues
+        m_MethodName: SetAsDefaultValues
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1455,6 +1455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 573394785}
+  difficultySlider: {fileID: 164261191}
 --- !u!4 &1684403797
 Transform:
   m_ObjectHideFlags: 0
