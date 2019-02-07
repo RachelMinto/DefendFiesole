@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114278974723161870}
   - component: {fileID: 60430211557567004}
   - component: {fileID: 114882909214140158}
+  - component: {fileID: 114781901977186678}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -167,9 +168,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
-  explosionEffectPrefab: {fileID: 1166281136425828, guid: 340e2bd00f57347e288f54ed439789b5,
-    type: 2}
-  durationOfExplosion: 2
+--- !u!114 &114781901977186678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1666345607828808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2df9ee3f24e435fb4441e52c84a6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
 --- !u!114 &114882909214140158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f00288824ba4b3eb198e3c1d1e6502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 50
   explosionEffectPrefab: {fileID: 1166281136425828, guid: 340e2bd00f57347e288f54ed439789b5,
     type: 2}
   durationOfExplosion: 2

@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f00288824ba4b3eb198e3c1d1e6502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 25
   explosionEffectPrefab: {fileID: 0}
   durationOfExplosion: 1
 --- !u!114 &114697355379013310
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bb1a722c8bf40dab6f60f06a54623e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starCost: 100
+  starCost: 50
 --- !u!114 &114769137025687386
 MonoBehaviour:
   m_ObjectHideFlags: 1
