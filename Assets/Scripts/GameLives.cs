@@ -17,8 +17,9 @@ public class GameLives : MonoBehaviour {
     private int NumberOfStartingLives() {
         PlayerPrefsController playerPrefsController = FindObjectOfType<PlayerPrefsController>();
         float difficulty = PlayerPrefsController.GetMasterDifficulty();
-        float someFloat = (1f - difficulty) * 10;
-        return (int)System.Math.Round(someFloat);
+        float roughLives = (1f - difficulty) * 10;
+        int lives = (int)System.Math.Round(roughLives);
+        return Mathf.Clamp(lives, 1, 10);
     }
 
     private void UpdateDisplay()
